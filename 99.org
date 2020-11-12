@@ -1,0 +1,65 @@
+#+TITLE: 99 Questions in hiaskell
+
+
+* I did all of these while listening to Nena 99 luftballons
+ hast du *something* ziet fur mich? singnbopbop fur dich
+
+
+** Exercise 1
+Find the last element of the list
+#+begin_src haskell
+revers :: [a] -> a
+revers = head . reverse
+
+revers [1,2,3]
+#+end_src
+
+#+RESULTS:
+: Prelude> Prelude> 3
+
+** Exercise 2
+Find the last-but-one element
+hmm, how do i not pattern match here?
+
+#+begin_src haskell
+rev2 :: [a] -> a
+rev2 = head . tail . reverse
+
+rev2 [1,2,5 ,3]
+#+end_src
+
+** Exercise 3
+Find the 1-indexed k'th element
+
+#+begin_src haskell
+ind :: [a] -> a
+ind lst k = lst !! (k - 1)
+ind [1,2,3] 1
+  -- You would do some kind of index checking
+#+end_src
+#+RESULTS:
+: Prelude> 1
+
+** Exercise 4
+Length finding
+ #+begin_src haskell
+myLength :: [a] -> Int
+myLength l = foldr (\_ -> (+1)) 0 l
+
+myLength [1,2,3]
+ #+end_src
+
+ #+RESULTS:
+ : Prelude> Prelude> 3
+** Exercise 5
+Reverse a list
+#+begin_src haskell
+rev :: [a] -> [a]
+rev l = foldr (\a b -> b:a) [] l
+
+ll = [1,2,3,4]
+rev ll
+#+end_src
+
+#+RESULTS:
+: Prelude> Prelude> Prelude> [4,3,2,1]
