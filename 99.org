@@ -61,5 +61,12 @@ ll = [1,2,3,4]
 rev ll
 #+end_src
 
+** Exercise 6
+Palindrome
+#+begin_src haskell
+palindrome :: [a] -> Bool
+palindrome lst = lst == (reverse lst)
+palindrome "abba"
+#+end_src
 #+RESULTS:
-: Prelude> Prelude> Prelude> [4,3,2,1]
+: Prelude> True
