@@ -27,4 +27,4 @@ goBackward :: Mem -> Mem
 goBackward (Mem (y : ys) x) = Mem ys (y : x)
 goBackward (Mem [] x) = Mem [] (0 : x)
 
-
+-- Let's do this tmrw
