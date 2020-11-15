@@ -70,3 +70,28 @@ palindrome "abba"
 #+end_src
 #+RESULTS:
 : Prelude> True
+** Exercise 7
+Flatten af list
+#+begin_src haskell
+flatten3 :: NestedList a -> [a]
+flatten3 (Elem x ) = [x]
+flatten3 (List xs) =  foldr (++) [] $ map flatten3 xs
+
+
+#+end_src
+
+** Exercise 8
+Remove duplicates
+#+begin_src haskell
+compress :: Eq a => [a] -> [a]
+compress xs = foldr f (const []) xs Nothing
+  where
+    f x r a@(Just q) | x == q = r a
+    f x r _ = x : r (Just x)
+compress "aaaabbbab"
+#+end_src
+
+#+RESULTS:
+: Prelude> Prelude> "aaaabbbab"
+
+** Exercise 8
