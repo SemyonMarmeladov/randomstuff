@@ -80,6 +80,9 @@ flatten3 (List xs) =  foldr (++) [] $ map flatten3 xs
 
 #+end_src
 
+#+RESULTS:
+: <interactive>:4:11-14: error: Not in scope: data constructor ‘List’
+
 ** Exercise 8
 Remove duplicates
 #+begin_src haskell
@@ -95,3 +98,24 @@ compress "aaaabbbab"
 : Prelude> Prelude> "aaaabbbab"
 
 ** Exercise 8
+Pack duplicates into a list. Should probably implement this huh
+#+begin_src haskell
+import Data.List
+pack :: Eq a => [a] -> [[a]]
+pack = group
+pack [1,1,1,2,2,3,3,3,4,3]
+
+
+{-
+I should probably have implemented group.
+look at this
+pack (x:xs) = let (first,rest) = span (==x) xs
+               in (x:first) : pack rest
+pack [] = []
+
+-}
+#+end_src
+
+#+RESULTS:
+: Prelude Data.List> [[1,1,1],[2,2],[3,3,3],[4],[3]]
+** Exercise 9
