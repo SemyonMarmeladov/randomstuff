@@ -1,7 +1,8 @@
 #+TITLE: 99 Questions in hiaskell
 
 
-* I did all of these while listening to Nena 99 luftballons
+* 1-10
+    I did all of these while listening to Nena 99 luftballons
  hast du *something* ziet fur mich? singnbopbop fur dich
 
 
@@ -119,3 +120,24 @@ pack [] = []
 #+RESULTS:
 : Prelude Data.List> [[1,1,1],[2,2],[3,3,3],[4],[3]]
 ** Exercise 9
+* 10-20
+** Exercise 11
+Encode lengths
+
+#+begin_src haskell
+
+-- |
+import Data.List
+data Encoding = Singleton Char
+              | Multiple Char Int
+              deriving (Show)
+
+encode :: String -> [Encoding]
+encode xs = [y | x <- group xs,
+             let y = if (length x) == 1 then Singleton (head x)
+                     else Multiple (head x) (length x)]
+
+encode "aabbcc"
+#+end_src
+
+** Exercise 12
