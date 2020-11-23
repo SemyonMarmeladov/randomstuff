@@ -121,8 +121,8 @@ pack [] = []
 : Prelude Data.List> [[1,1,1],[2,2],[3,3,3],[4],[3]]
 ** Exercise 9
 * 10-20
-** Exercise 11
-Encode lengths
+** Exercise 11-13
+Encode lengths. it's all variatians of this.
 
 #+begin_src haskell
 
@@ -140,4 +140,35 @@ encode xs = [y | x <- group xs,
 encode "aabbcc"
 #+end_src
 
-** Exercise 12
+** Exercise 14
+Duplicate each elementÆ
+
+#+begin_src haskell
+dupli :: [a] -> [a]
+dupli [] = []
+dupli (x:xs) = (x:x:dupli xs)
+
+dupli [1,2,3]
+#+end_src
+
+** Exercise 15
+replicate each element n times
+#+begin_src haskell
+import Control.Monad
+repli :: Int ->  [a] -> [a]
+repli n l = l >>= replicate n
+
+repli 3 [1,2,3]
+#+end_src
+
+** Exercise 16
+Delete every N'th element of a list
+#+begin_src haskell
+nth :: Int -> Int -> [a] -> [a]
+nth _ _ [] = []
+nth 1 acc (_:xs) = (nth acc acc xs)
+nth n acc (x:xs) = x : (nth (n-1) acc xs)
+
+nth 3 3 "abcdefghijkl"
+#+end_src
+

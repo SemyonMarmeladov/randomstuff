@@ -1,16 +1,7 @@
 
 
-inits :: [a] -> [[a]]
-inits []   = [[]]
-inits (x:xs) = [] : map (x:) (inits xs)
+nth :: Int -> Int -> [a] -> [a]
+nth _ _ [] = []
+nth 1 acc (_:xs) = (nth acc acc xs)
+nth n acc (x:xs) = x : (nth (n-1) acc xs)
 
-
-tails :: [a] -> [[a]]
-tails [] = [[]]
-tails (x:xs) = (x:xs):tails xs
-
-
-mss :: [Int] -> Int
-mss = maximum . map sum . segments
-
-segments = concat . map inits . tails
