@@ -171,4 +171,29 @@ nth n acc (x:xs) = x : (nth (n-1) acc xs)
 
 nth 3 3 "abcdefghijkl"
 #+end_src
+** Exercise 17
+split a list at an index.
+#+begin_src haskell
+-- Should have a guard yaknow
+-- guard checking length or calling spl WHERE spl is this.
+spl :: ([a], [a]) -> Integer -> ([a],[a])
+spl l 0 = l
+spl (xs, (y:ys)) acc = (spl ((y:xs), ys) (acc - 1))
 
+split3 :: [a] -> Integer -> ([a], [a])
+split3 l acc = spl ([], l) acc
+
+#+end_src
+** Exercise 18
+slice the list... OH jesus i'll be back
+#+begin_src haskell
+msplice ::
+msplice s e ls
+  | (length ls) < e -> []
+  | e < s           -> []
+  | otherwise       -> splice' s e ls
+    where
+          splice' :: Integer -> Integer -> [a] -> ([a],[a])
+          splice' s e ls =
+
+#+end_src

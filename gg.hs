@@ -1,8 +1,4 @@
--- |
-dupli [1,2,3]
-
-
-dupli :: [a] -> [a]
-dupli [] = []
-dupli (x:xs) = (x:x:dupli xs)
+spl :: ([a], [a]) -> Integer -> ([a],[a])
+spl l 0 = l
+spl (xs, (y:ys)) acc = (spl ((y:xs), ys) (acc - 1))
 
