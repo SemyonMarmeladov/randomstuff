@@ -1,0 +1,2 @@
+
+1. Just as we typecheck user-written terms, we kind-check user-written types.

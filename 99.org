@@ -197,3 +197,14 @@ msplice s e ls
           splice' s e ls =
 
 #+end_src
+
+#+RESULTS:
+: <interactive>:9:27: error:
+:     parse error (possibly incorrect indentation or mismatched brackets)
+** Exercise 19
+
+** Exercise 20
+#+begin_src haskell
+removeAt :: Integer -> String -> (Char, String)
+
+#+end_src
