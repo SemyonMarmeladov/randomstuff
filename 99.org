@@ -206,5 +206,27 @@ msplice s e ls
 ** Exercise 20
 #+begin_src haskell
 removeAt :: Integer -> String -> (Char, String)
-
+removeAt n x  = ( (x !! (n-1)), take (n - 1) x ++ drop n x )
+(removeAt 5 "Hello")
 #+end_src
+* 20-28
+** Problem 21
+insert smfin'
+#+begin_src haskell
+insertAt :: Char -> String -> Integer -> String
+insertAt c str n = (drop n-1 str) ++ c ++ (take n str)
+#+end_src
+
+** prob 23
+Create a range function
+#+begin_src haskell
+ange :: Integer -> Integer -> [Integer]
+ange n lim
+  | n == lim  = []
+  | otherwise =  n : (ange (n + 1) lim)
+#+end_src
+
+#+RESULTS:
+: Prelude>
+: <interactive>:169:2-5: error:
+:     Variable not in scope: ange :: t0 -> t1 -> t
