@@ -217,7 +217,7 @@ insertAt :: Char -> String -> Integer -> String
 insertAt c str n = (drop n-1 str) ++ c ++ (take n str)
 #+end_src
 
-** prob 23
+** Problem 22
 Create a range function
 #+begin_src haskell
 ange :: Integer -> Integer -> [Integer]
@@ -226,7 +226,24 @@ ange n lim
   | otherwise =  n : (ange (n + 1) lim)
 #+end_src
 
+
+** Problem 23
+extract a given number of random element
+
+#+begin_src haskell
+import System.Random
+rnd_select xs n = do
+    gen <- getStdGen
+    return $ take n [ xs !! x | x <- randomRs (0, (length xs) - 1) gen]
+
+#+end_src
+** Problem 24
+draw n numbers from the set 1..m
+#+begin_src haskell
+
+
+#+end_src
 #+RESULTS:
 : Prelude>
-: <interactive>:169:2-5: error:
-:     Variable not in scope: ange :: t0 -> t1 -> t
+: <interactive>:183:2-11: error:
+:     Variable not in scope: rnd_select :: [Char] -> t0 -> t
