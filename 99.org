@@ -240,10 +240,14 @@ rnd_select xs n = do
 ** Problem 24
 draw n numbers from the set 1..m
 #+begin_src haskell
-
-
+import System.Random
+diffSelect :: Int -> Int -> IO [Int]
+diffSelect n m = do
+  gen <- getStdGen
+  return . take n $ randomRs (1, m) gen
 #+end_src
-#+RESULTS:
-: Prelude>
-: <interactive>:183:2-11: error:
-:     Variable not in scope: rnd_select :: [Char] -> t0 -> t
+** Problem 25
+#+begin_src haskell
+rnd_permu :: String -> String
+rnd_permu s =
+#+end_src
