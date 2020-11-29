@@ -251,3 +251,23 @@ diffSelect n m = do
 rnd_permu :: String -> String
 rnd_permu s =
 #+end_src
+
+* 54-60
+** 55 completely balanced binary trees. sol not mine.
+#+begin_src haskell
+data Tree a = Empty | Node a (Tree a) (Tree a)
+  (deriving Show, Eq)
+
+tree1 = Branch 'a' (Branch 'b' (Branch 'd' Empty Empty)
+                               (Branch 'e' Empty Empty))
+                   (Branch 'c' Empty
+                               (Branch 'f' (Branch 'g' Empty Empty)
+                                           Empty))
+
+cbalTree :: Int -> [Tree Char]
+cbalTree 0 = [Empty]
+cbalTree n = let (q, r) = (n - 1) `quotRem` 2
+    in [Branch 'x' left right | i     <- [q .. q + r],
+                                left  <- cbalTree i,
+                                right <- cbalTree (n - i - 1)]
+#+end_src
