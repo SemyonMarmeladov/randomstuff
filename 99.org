@@ -255,7 +255,7 @@ rnd_permu s =
 * 54-60
 ** 55 completely balanced binary trees. sol not mine.
 #+begin_src haskell
-data Tree a = Empty | Node a (Tree a) (Tree a)
+data Tree a = Empty | Node   a (Tree a) (Tree a)
   (deriving Show, Eq)
 
 tree1 = Branch 'a' (Branch 'b' (Branch 'd' Empty Empty)
