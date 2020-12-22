@@ -1,0 +1,1 @@
+-- Og giver os alle funktor algebra
