@@ -8,6 +8,8 @@ import Data.Maybe
 import qualified Data.Map as Map
 
 
+exampleExp = Lit 12 "Plus" (App (Abs "x" (var "x"))(Lit 4 "Plus" Lit 2))
+
 type Name = String
 data Exp = Lit Integer 
          | Var Name
@@ -34,3 +36,5 @@ eval0 env (App e1 e2)  = let val1 = eval0 env e1
                              val2 = eval0 env e2
                              in case val1 of 
                                FunVal env' n body -> eval0 (Map.insert n val2 env') body
+
+
